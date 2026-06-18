@@ -6,7 +6,6 @@ A lightweight JSON library for RockLua (fork with changed numbers encoding to be
 * Implemented in pure Lua: works with 5.1, 5.2, 5.3 and JIT
 * Fast: generally outperforms other pure Lua JSON implementations
   ([benchmark scripts](bench/))
-* Tiny: around 280sloc, 9kb
 * Proper error messages, *eg:* `expected '}' or ',' at line 203 col 30`
 
 
