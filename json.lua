@@ -2,6 +2,7 @@
 -- json.lua
 --
 -- Copyright (c) 2020 rxi
+-- Copyright (c) 2026 zoaix
 --
 -- Permission is hereby granted, free of charge, to any person obtaining a copy of
 -- this software and associated documentation files (the "Software"), to deal in
@@ -102,21 +103,11 @@ local function encode_string(val)
   return '"' .. val:gsub('[%z\1-\31\\"]', escape_char) .. '"'
 end
 
-
-local function encode_number(val)
-  -- Check for NaN, -inf and inf
-  if val ~= val or val <= -math.huge or val >= math.huge then
-    error("unexpected number value '" .. tostring(val) .. "'")
-  end
-  return string.format("%.14g", val)
-end
-
-
 local type_func_map = {
   [ "nil"     ] = encode_nil,
   [ "table"   ] = encode_table,
   [ "string"  ] = encode_string,
-  [ "number"  ] = encode_number,
+  [ "number"  ] = tostring,
   [ "boolean" ] = tostring,
 }
 
